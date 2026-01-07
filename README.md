@@ -5,8 +5,6 @@
 
 The goal of this project was to recode the get_next_line() function, which reads the contents of a file line by line from a file descriptor, where a “line” is a sequence of characters ending with “\n” (new line) or the end of the file (EOF). The function must work with any file size and any line length. This project is not limited to simply reading files; it involves understanding how to efficiently handle data that arrives in unpredictable blocks while maintaining state between function calls.
 
-This project was carried out using linked lists, which are a flexible structure and allow for more efficient memory management.
-
 :brain: **This project allowed me to greatly improve the following skills:**
 - Dynamic Memory Allocation
 - Linked list
