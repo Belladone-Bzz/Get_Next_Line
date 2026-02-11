@@ -1,5 +1,8 @@
 #include "get_next_line.h"
 
+/*
+Free the memory allocated to all element in the list.
+*/
 static void	*ft_free_lst(t_list *lst)
 {
 	t_list	*temporary;
@@ -14,6 +17,12 @@ static void	*ft_free_lst(t_list *lst)
 	return (NULL);
 }
 
+/*
+On the first call, read the file and call the function ft_new_node(). From the second call, check if there is anything 
+left to copy in the buffer before erasing it with a new read() call.
+
+Return the index of the buffer immediately after a line break "\n" or the last character.
+*/
 static ssize_t	ft_read_content(int fd, ssize_t len_bef, t_list **lst,
 	char *buffer)
 {

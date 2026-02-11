@@ -28,6 +28,12 @@ void	ft_join_content(t_list *lst, char **line)
 	(*line)[l_index] = '\0';
 }
 
+/*
+Adds the new node to the end of the linked list. If the list was 
+empty, the list pointer then points to the new node wich become 
+the first element of the linked list. These changes are made by 
+reference.
+*/
 void	ft_add_back(t_list **lst, t_list *new_node)
 {
 	t_list	*temp;
