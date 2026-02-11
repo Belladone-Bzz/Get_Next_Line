@@ -55,21 +55,28 @@ This project was carried out using linked list wich are a flexible structure and
 
 <img width="1394" height="965" alt="Screenshot From 2026-01-05 19-57-44" src="https://github.com/user-attachments/assets/0b0273e9-df15-4f2d-a900-71ad5f380ed9" />
 
-
 This get_next_line project is divided between 3 files : `get_next_line.c`, `get_next_line_utils.c` and `get_next_line.h`. While the header purpose is typical, functions are naturally divided between the other two C files.
+
+Core function of the project :
+
+|NAME|DESCRIPTION|
+|---|---|
+|ft_get_next_line|Read the contents of a file line by line from a file descriptor and return a malloc'ed string of this content until a "\n".|
+---
 
 ### get_next_line.c
 
-|NAME|PROTOTYPE|DECRIPTION|RETURN VALUES|
-|---|---|---|---|
-|ft_free_lst|static void *ft_free_lst(t_list *lst)|Free the memory allocated to all element in the list|Nothing|
-|ft_read_content|static ssize_t	ft_read_content(int fd, ssize_t len_bef, t_list **lst, char *buffer)|On the first call, read the file and call the function ft_new_node(). From the second call, check if there is anything left to copy in the buffer before erasing it with a new read() call|The index of the buffer immediately after which a line break '\n' or the last character.|
-|ft_get_next_line|char *get_next_line(int fd)|Call the ft_read_content() function, then the ft_join_content() function when a line break '\n' is found. If there is a problem, call the ft_free_lst() function to free memory allocated to the elements of the list| The string containing all characters before a line break '\n' inside the file referenced by the file descriptor fd|
+|NAME|DECRIPTION|
+|---|---|
+|ft_read_content|On the first call, read the file and call the function ft_new_node(). From the second call, check if there is anything left to copy in the buffer before erasing it with a new read() call. Return the index of the buffer immediately after a line break "\n" or the last character.|
+|ft_free_lst|Free the memory allocated to all element in the list.|
+---
 
 ### get_next_line_utils.c
 
-|NAME|PROTOTYPE|DECRIPTION|RETURN VALUES|
-|---|---|---|---|
-|ft_join_content|void ft_join_content(t_list *lst, char **line)|Copies the content of the elements of the linked list into a character string> The character string is modified by reference.|Nothing|
-|ft_add_back|void ft_add_back(t_list **lst, t_list *new_node)|Adds the new node to the end of the linked list. If the list was empty, the list pointer then points to the new node wich become the first element of the linked list. These changes are made by reference.| Nothing|
-|ft_new_node|int ft_new_node(t_list **lst, char *buffer, ssize_t size)|Creates a new node and then call the ft_add_back() function to place it at the end of the linked list. Then copy the buffer into the content of this new node until it encounter a line break '\n' or until the end of the buffer|Returns the index where copying stopped.|
+|NAME|DECRIPTION|
+|---|---|
+|ft_new_node|Create a new node and then call the ft_add_back() function to place it at the end of the linked list. When done, copy the buffer into the content of this new node until it encounter a line break '\n' or until the end of the buffer.Return the index of the buffer where copying stopped.|
+|ft_add_back|Add the new node to the end of the linked list. If the list was empty, the list pointer then points to the new node wich become the first element of the linked list. These changes are made by reference.|
+|ft_join_content|Copie the content of the elements of the linked list into a character string. The character string is modified by reference.|
+---
