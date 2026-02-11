@@ -29,7 +29,7 @@ void	ft_join_content(t_list *lst, char **line)
 }
 
 /*
-Adds the new node to the end of the linked list. If the list was 
+Add the new node to the end of the linked list. If the list was 
 empty, the list pointer then points to the new node wich become 
 the first element of the linked list. These changes are made by 
 reference.
